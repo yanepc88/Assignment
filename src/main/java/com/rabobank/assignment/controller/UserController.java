@@ -25,12 +25,12 @@ public class UserController {
 
     @PostMapping("/import")
     @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity<Object> importFile(@RequestParam("issues") MultipartFile issues) {
+    public ResponseEntity<Object> importFile(@RequestParam("userIssues") MultipartFile userIssues) {
         log.info("Importing CSV file");
-        if (Util.hasCSVFormat(issues)) {
+        if (Util.hasCSVFormat(userIssues)) {
             try {
-                userService.save(issues);
-                return ResponseEntity.status(HttpStatus.OK).body(("Uploaded the file successfully: " + issues.getOriginalFilename()));
+                userService.save(userIssues);
+                return ResponseEntity.status(HttpStatus.OK).body(("Uploaded the file successfully: " + userIssues.getOriginalFilename()));
             } catch (Exception e) {
                 return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body("");
             }
