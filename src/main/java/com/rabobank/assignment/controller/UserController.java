@@ -25,7 +25,7 @@ public class UserController {
 
     @PostMapping("/import")
     @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity<Object> importFile(@RequestParam("userIssues") MultipartFile userIssues) {
+    public ResponseEntity<Object> importFile(@RequestParam("issues") MultipartFile userIssues) {
         log.info("Importing CSV file");
         if (Util.hasCSVFormat(userIssues)) {
             try {
