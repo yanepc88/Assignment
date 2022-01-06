@@ -1,6 +1,7 @@
 package com.rabobank.assignment.crosscutting;
 
 import com.rabobank.assignment.repository.entity.*;
+import lombok.extern.slf4j.*;
 import org.apache.commons.csv.*;
 import org.springframework.web.multipart.*;
 
@@ -8,7 +9,7 @@ import java.io.*;
 import java.nio.charset.*;
 import java.time.*;
 import java.util.*;
-
+@Slf4j
 public class Util {
     private static final String TYPE = "text/csv";
 
@@ -44,7 +45,7 @@ public class Util {
                 users.add(tutorial);
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            log.info("Error while converting");
         }
         return users;
     }
