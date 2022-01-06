@@ -38,7 +38,7 @@ The app defines following APIs.
 
 POST /api/users/import
 
-GET /api/users
+GET /api/users?id=*someId*
 
 GET /api/users/filter
 
