@@ -32,7 +32,7 @@ public class UserController {
                 userService.save(userIssues);
                 return ResponseEntity.status(HttpStatus.OK).body(("Uploaded the file successfully: " + userIssues.getOriginalFilename()));
             } catch (Exception e) {
-                return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body("");
+                return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body("Couldn't upload file");
             }
         }
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Please upload a csv file");
